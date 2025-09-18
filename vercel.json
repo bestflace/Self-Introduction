@@ -6,7 +6,6 @@
   ],
   "routes": [
     { "src": "/", "dest": "frontend/index.html" },
-    { "src": "/style.css", "dest": "frontend/style.css" },
     { "src": "/thamkin", "dest": "frontend/thamkin.html" },
     { "src": "/tarot", "dest": "frontend/tarot.html" },
     { "src": "/api/send", "dest": "api/send.js" }
