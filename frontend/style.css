@@ -1,0 +1,526 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  font-family: "Faustina", sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  overflow-x: hidden;
+  background-color: black;
+  color: white;
+}
+
+header {
+  margin-top: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 9%;
+  background-color: transparent;
+  filter: drop-shadow(10px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 3rem;
+  color: #61c0ec;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+
+.logo:hover {
+  transform: scale(1.1);
+}
+
+nav a {
+  font-size: 1.8rem;
+  color: white;
+  margin-left: 4rem;
+  font-weight: 500;
+  transition: 0.3s ease;
+  border-bottom: 3px solid transparent;
+}
+
+nav a:hover,
+nav a.active {
+  color: #61c0ec;
+  border-bottom: 3px solid #61c0ec;
+}
+
+@media (max-width: 995px) {
+  nav {
+    position: absolute;
+    display: none;
+    top: 0;
+    right: 0;
+    width: 40%;
+    border-left: 3px solid #b74b4b;
+    border-bottom: 3px solid #b74b4b;
+    border-bottom-left-radius: 2rem;
+    padding: 1rem solid;
+    background-color: #161616;
+    border-top: 0.1rem solid rgba(0, 0, 0, 0.1);
+  }
+
+  nav.active {
+    display: block;
+  }
+
+  nav a {
+    display: block;
+    font-size: 2rem;
+    margin: 3rem 0;
+  }
+
+  nav a:hover,
+  nav a.active {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border-bottom: 0.5rem solid #61c0ec;
+  }
+}
+
+section {
+  min-height: 100vh;
+  padding: 5rem 9% 5rem;
+}
+
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8rem;
+  background-color: black;
+}
+
+.home .home-content h1 {
+  font-size: 6rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+span {
+  color: #61c0ec;
+}
+
+.home-content h3 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.home-content p {
+  font-size: 2rem;
+}
+
+.home-img {
+  border-radius: 50%;
+}
+
+.home-img img {
+  position: relative;
+  width: 32vw;
+  border-radius: 50%;
+  box-shadow: 0 0 25px solid #61c0ec;
+  cursor: pointer;
+  transition: 0.2s linear;
+}
+
+.home-img img:hover {
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.social-icons a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 4rem;
+  height: 4rem;
+  background-color: transparent;
+  border: 0.2rem solid #61c0ec;
+  font-size: 2rem;
+  border-radius: 50%;
+  margin: 3rem 1.5rem 3rem 0;
+  transition: 0.3s ease;
+  color: #61c0ec;
+}
+
+.social-icons a:hover {
+  color: black;
+  transform: scale(1.3) translateY(-5px);
+  background-color: #61c0ec;
+  box-shadow: 0 0 25px #61c0ec;
+}
+
+.btn {
+  margin-top: 3rem;
+  display: inline-block;
+  padding: 1rem 2.8rem;
+  background-color: black;
+  border-radius: 4rem;
+  font-size: 1.6rem;
+  color: #61c0ec;
+  letter-spacing: 0.3rem;
+  font-weight: 600;
+  border: 2px solid #61c0ec;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.btn:hover {
+  transform: scale3d(1.03);
+  background-color: #61c0ec;
+  color: black;
+  box-shadow: 0 0 25px #61c0ec;
+}
+
+.typing-text {
+  font-size: 34px;
+  font-weight: 600;
+  min-width: 280px;
+}
+
+.typing-text span {
+  position: relative;
+}
+
+.typing-text span::before {
+  content: "software Developer";
+  color: #61c0ec;
+  animation: words 20s infinite;
+}
+
+.typing-text span::after {
+  content: "";
+  background-color: black;
+  position: absolute;
+  width: calc(100% + 8px);
+  height: 100%;
+  border-left: 3px solid black;
+  right: -8;
+  animation: cursor 0.6s infinite;
+}
+
+@keyframes cursor {
+  to {
+    border-left: 3px solid #61c0ec;
+  }
+}
+
+@keyframes words {
+  0%,
+  30% {
+    content: "Lập trình viên";
+  }
+
+  31%,
+  70% {
+    content: "một Song Ngư T3";
+  }
+  71%,
+  100% {
+    content: "Tarot Reader (lỏ)";
+  }
+}
+
+@media (max-width: 1000px) {
+  .home {
+    gap: 4rem;
+  }
+}
+
+@media (max-width: 995px) {
+  .home {
+    flex-direction: column;
+    margin: 5rem 4rem;
+  }
+
+  .home .home-content h3 {
+    font-size: 2.5rem;
+  }
+
+  .home-content h1 {
+    font-size: 5rem;
+  }
+
+  .home-img img {
+    width: 70vw;
+    margin-top: 4rem;
+  }
+}
+
+/* Modal overlay - hiển thị ở giữa màn hình */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+  padding: 2rem;
+}
+
+.modal.open {
+  display: flex;
+}
+
+.modal-dialog {
+  position: relative;
+  width: 100%;
+  max-width: 640px;
+  background: #fff;
+  color: #111;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.modal-dialog h2 {
+  margin: 0 0 12px 0;
+  color: #222;
+  font-size: 2rem;
+}
+
+.modal-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: transparent;
+  font-size: 2.2rem;
+  line-height: 1;
+  cursor: pointer;
+  color: #666;
+  border: none;
+}
+
+.secret-form label {
+  display: block;
+  margin-top: 12px;
+  color: #333;
+  font-weight: 600;
+}
+
+.secret-form input[type="email"],
+.secret-form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-top: 6px;
+  font-size: 1.4rem;
+  font-family: inherit;
+  background: #fff;
+  color: #111;
+}
+
+.secret-form button.btn {
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: 2px solid #61c0ec;
+  background: #000;
+  color: #61c0ec;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.secret-form button.btn:hover {
+  background: #61c0ec;
+  color: #000;
+}
+
+/* prevent page shift on modal open for small devices */
+@media (max-width: 600px) {
+  .modal-dialog {
+    padding: 16px;
+  }
+
+  .secret-form input,
+  .secret-form textarea {
+    font-size: 1.2rem;
+  }
+}
+/* ===== FORM STYLE - nâng cấp đẹp hơn ===== */
+
+.secret-form {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.secret-form label {
+  font-size: 1.4rem;
+  color: #222;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.secret-form input[type="email"],
+.secret-form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 2px solid #ddd;
+  background: #f9f9f9;
+  font-size: 1.5rem;
+  font-family: "Poppins", sans-serif;
+  transition: all 0.25s ease;
+}
+
+.secret-form input[type="email"]:focus,
+.secret-form textarea:focus {
+  border-color: #61c0ec;
+  background: #fff;
+  box-shadow: 0 0 8px rgba(97, 192, 236, 0.6);
+  outline: none;
+}
+
+.secret-form textarea {
+  resize: none;
+  min-height: 120px;
+  line-height: 1.5;
+}
+
+/* Button nhóm */
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
+}
+
+.secret-form button.btn {
+  padding: 12px 22px;
+  border-radius: 10px;
+  border: 2px solid #61c0ec;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.25s ease;
+}
+
+/* nút Gửi */
+.secret-form button.btn[type="submit"] {
+  background: #61c0ec;
+  color: #000;
+}
+
+.secret-form button.btn[type="submit"]:hover {
+  background: #000;
+  color: #61c0ec;
+  box-shadow: 0 0 12px #61c0ec;
+}
+
+/* nút Hủy */
+.secret-form button.btn.cancel {
+  background: #eee;
+  color: #444;
+  border: 2px solid #ccc;
+}
+
+.secret-form button.btn.cancel:hover {
+  background: #ddd;
+  color: #000;
+}
+/* Canh giữa tiêu đề trong modal */
+.modal-dialog h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #222;
+}
+
+/* Nhóm nút căn 2 bên */
+.form-actions {
+  display: flex;
+  justify-content: space-between; /* Hủy sang trái, Gửi sang phải */
+  align-items: center;
+  margin-top: 1.5rem;
+}
+/* ==== Hiệu ứng mở modal ==== */
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.modal.open .modal-dialog {
+  animation: modalFadeIn 0.35s ease forwards;
+}
+
+/* ==== Hiệu ứng input & textarea ==== */
+.secret-form input[type="email"],
+.secret-form textarea {
+  transition: all 0.3s ease, box-shadow 0.3s ease;
+}
+
+.secret-form input[type="email"]:hover,
+.secret-form textarea:hover {
+  border-color: #61c0ec;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(97, 192, 236, 0.3);
+}
+
+/* ==== Button với hiệu ứng gradient ==== */
+.secret-form button.btn {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.secret-form button.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #61c0ec, #4fa8d9);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: -1;
+}
+
+.secret-form button.btn[type="submit"]:hover::before {
+  transform: translateX(0);
+}
+
+.secret-form button.btn[type="submit"] {
+  color: #000;
+}
+
+.secret-form button.btn[type="submit"]:hover {
+  color: #fff;
+}
+
+/* Nút Hủy với hiệu ứng nhấn */
+.secret-form button.cancel {
+  transition: background 0.25s ease, transform 0.2s ease;
+}
+
+.secret-form button.cancel:hover {
+  background: #ccc;
+  transform: scale(1.05);
+}

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Tarot</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Faustina:ital,wght@0,300..800;1,300..800&family=M+PLUS+Rounded+1c&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <a href="#" class="logo">BestFlace</a>
+
+      <nav>
+        <a href="index.html"> Giới thiệu</a>
+        <a href="thamkin.html">Thầm kín</a>
+        <a href="tarot.html">Tarot</a>
+        <a href="#">Học vấn</a>
+        <a href="#">Liên lạc</a>
+      </nav>
+    </header>
+    <section class="home">
+      <div class="home-img">
+        <img src="main.jpg" alt="" />
+      </div>
+      <div class="home-content">
+        <h3>
+          Có vấn đề nào muốn hỏi mình thì hãy điền vào form bên dưới nhé <3
+        </h3>
+        <p>
+          Mình sẽ cố gắng xem cho mọi người khi rãnh nha chứ mình sợ rớt môn
+          lắm...
+        </p>
+        <button type="button" id="openFormBtn" class="btn">Dô nè</button>
+      </div>
+    </section>
+
+    <!-- Modal overlay (hiện lên màn hình) -->
+    <div id="tarotModal" class="modal" aria-hidden="true">
+      <div
+        class="modal-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalTitle"
+      >
+        <button class="modal-close" id="modalClose" aria-label="Đóng">
+          &times;
+        </button>
+        <h2 id="modalTitle">Hỏi sao cho hợp lý dùm !!!</h2>
+
+        <form id="tarotForm" class="secret-form">
+          <label for="modal-email">Nổ email ra đây</label>
+          <input type="email" id="modal-email" name="email" required />
+
+          <label for="modal-message">Viết nội dung dưới này nè</label>
+          <textarea
+            id="modal-message"
+            name="message"
+            rows="6"
+            required
+          ></textarea>
+
+          <div class="form-actions">
+            <button type="button" id="closeFormBtn" class="btn cancel">
+              Cút
+            </button>
+            <button type="submit" class="btn">Gửi cho Dĩ</button>
+          </div>
+        </form>
+
+        <p id="resMsg" style="color: green; display: none; margin-top: 10px">
+          Đã gửi thành công!
+        </p>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const openBtn = document.getElementById("openFormBtn");
+        const closeBtn = document.getElementById("closeFormBtn");
+        const modalClose = document.getElementById("modalClose");
+        const modal = document.getElementById("tarotModal");
+        const form = document.getElementById("tarotForm");
+        const resMsg = document.getElementById("resMsg");
+
+        function openModal() {
+          modal.classList.add("open");
+          document.body.style.overflow = "hidden";
+          modal.setAttribute("aria-hidden", "false");
+          // focus first input
+          setTimeout(
+            () => document.getElementById("modal-email")?.focus(),
+            120
+          );
+        }
+
+        function closeModal() {
+          modal.classList.remove("open");
+          document.body.style.overflow = "";
+          modal.setAttribute("aria-hidden", "true");
+        }
+
+        openBtn?.addEventListener("click", openModal);
+        closeBtn?.addEventListener("click", closeModal);
+        modalClose?.addEventListener("click", closeModal);
+
+        // click outside dialog to close
+        modal?.addEventListener("click", (e) => {
+          if (e.target === modal) closeModal();
+        });
+
+        // submit via fetch to backend (adjust URL if needed)
+        form?.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const email = document.getElementById("modal-email").value.trim();
+          const message = document.getElementById("modal-message").value.trim();
+          if (!email || !message) return;
+
+          try {
+            const res = await fetch("/api/send", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ email, message }),
+            });
+            if (res.ok) {
+              resMsg.style.display = "block";
+              form.reset();
+              setTimeout(() => {
+                resMsg.style.display = "none";
+                closeModal();
+              }, 1700);
+            } else {
+              alert("Gửi thất bại");
+            }
+          } catch (err) {
+            alert("Lỗi kết nối tới server");
+            console.error(err);
+          }
+        });
+
+        // keyboard Esc to close
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape" && modal.classList.contains("open"))
+            closeModal();
+        });
+      });
+    </script>
+  </body>
+</html>
