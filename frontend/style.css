@@ -551,30 +551,18 @@ span {
   background: #61c0ec;
 }
 
-.menu-icon .bar {
-  display: block;
-  width: 22px;
-  height: 2.5px;
-  background: currentColor;
-  margin: 3px 0;
-  border-radius: 2px;
-  transition: transform 0.22s ease, opacity 0.18s ease;
-  transform-origin: center;
+.menu-icon i {
+  font-size: 2.2rem;
+  line-height: 1;
+  pointer-events: none; /* clicks handled on .menu-icon */
 }
 
-/* open state */
-.menu-icon.open .bar:nth-child(1) {
-  transform: translateY(6px) rotate(45deg);
-}
-.menu-icon.open .bar:nth-child(2) {
-  opacity: 0;
-  transform: scaleX(0);
-}
-.menu-icon.open .bar:nth-child(3) {
-  transform: translateY(-6px) rotate(-45deg);
+/* open state visual (rotate icon) */
+.menu-icon.open {
+  transform: rotate(90deg);
 }
 
-/* Mobile layout */
+/* Mobile layout: show icon and style nav */
 @media (max-width: 995px) {
   .menu-icon {
     display: flex;
@@ -582,7 +570,7 @@ span {
 
   nav {
     position: absolute;
-    top: 64px; /* adjust to match header height */
+    top: 64px; /* adjust to header height */
     right: 12px;
     width: calc(58vw);
     max-width: 320px;
@@ -600,7 +588,7 @@ span {
 
   nav a {
     display: block;
-    text-align: center; /* center text to fix left-aligned issue */
+    text-align: center;
     font-size: 1.05rem;
     margin: 0.6rem 0;
     padding: 0.6rem 0.8rem;
@@ -612,6 +600,11 @@ span {
   nav a.active {
     color: #61c0ec;
     background: rgba(97, 192, 236, 0.06);
-    border-bottom: none; /* remove unexpected thick bottom border on mobile */
+    border-bottom: none;
   }
+}
+
+/* Optional: ensure any old .menu-icon .bar rules don't affect pages */
+.menu-icon .bar {
+  display: none !important;
 }
