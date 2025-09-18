@@ -14,12 +14,16 @@
   </head>
   <body>
     <header>
-      <a href="#" class="logo">BestFlace</a>
-      <div class="menu-icon" onclick="toggleMenu()">
-        <i class="fa fa-bars"></i>
+      <a href="index.html" class="logo">BestFlace</a>
+
+      <div class="menu-icon" aria-label="Open menu" role="button" tabindex="0">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
       </div>
+
       <nav>
-        <a href="index.html"> Giới thiệu</a>
+        <a href="index.html">Giới thiệu</a>
         <a href="thamkin.html">Thầm kín</a>
         <a href="tarot.html">Tarot</a>
         <a href="#">Học vấn</a>
@@ -157,5 +161,6 @@
         document.querySelector("nav").classList.toggle("active");
       }
     </script>
+    <script src="js/menu.js"></script>
   </body>
 </html>
