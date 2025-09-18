@@ -534,51 +534,84 @@ span {
 /* Hamburger menu icon (mobile) */
 .menu-icon {
   display: none;
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
+  padding: 6px;
+  box-sizing: border-box;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  margin-left: 1rem;
   border-radius: 8px;
-  transition: background 0.2s;
+  transition: background 0.15s ease, transform 0.15s ease;
+  z-index: 1100;
+  color: #fff; /* controls bar color via currentColor */
 }
 
 .menu-icon:hover {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.04);
 }
 
-/* three-bar */
 .menu-icon .bar {
   display: block;
-  width: 20px;
-  height: 2px;
-  background: #fff;
+  width: 22px;
+  height: 2.5px;
+  background: currentColor;
   margin: 3px 0;
-  transition: transform 0.25s, opacity 0.25s;
+  border-radius: 2px;
+  transition: transform 0.22s ease, opacity 0.18s ease;
+  transform-origin: center;
 }
 
 /* open state */
 .menu-icon.open .bar:nth-child(1) {
-  transform: translateY(5px) rotate(45deg);
+  transform: translateY(6px) rotate(45deg);
 }
-
 .menu-icon.open .bar:nth-child(2) {
   opacity: 0;
+  transform: scaleX(0);
 }
-
 .menu-icon.open .bar:nth-child(3) {
-  transform: translateY(-5px) rotate(-45deg);
+  transform: translateY(-6px) rotate(-45deg);
 }
 
-/* show on mobile (matches your breakpoint) */
+/* Mobile layout */
 @media (max-width: 995px) {
   .menu-icon {
     display: flex;
   }
 
-  /* ensure nav hidden by default on mobile (you already have this) */
   nav {
-    transition: transform 0.2s ease;
+    position: absolute;
+    top: 64px; /* adjust to match header height */
+    right: 12px;
+    width: calc(58vw);
+    max-width: 320px;
+    display: none;
+    background-color: #161616;
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+    z-index: 1050;
+  }
+
+  nav.active {
+    display: block;
+  }
+
+  nav a {
+    display: block;
+    text-align: center; /* center text to fix left-aligned issue */
+    font-size: 1.05rem;
+    margin: 0.6rem 0;
+    padding: 0.6rem 0.8rem;
+    color: #fff;
+    border-radius: 8px;
+  }
+
+  nav a:hover,
+  nav a.active {
+    color: #61c0ec;
+    background: rgba(97, 192, 236, 0.06);
+    border-bottom: none; /* remove unexpected thick bottom border on mobile */
   }
 }
