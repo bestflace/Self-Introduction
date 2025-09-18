@@ -1,13 +1,14 @@
 {
   "version": 2,
   "builds": [
-    { "src": "frontend/**", "use": "@vercel/static" },
+    { "src": "frontend/**/*", "use": "@vercel/static" },
     { "src": "api/send.js", "use": "@vercel/node" }
   ],
   "routes": [
     { "src": "/", "dest": "frontend/index.html" },
     { "src": "/thamkin", "dest": "frontend/thamkin.html" },
     { "src": "/tarot", "dest": "frontend/tarot.html" },
+    { "src": "/(.*)", "dest": "frontend/$1" },
     { "src": "/api/send", "dest": "api/send.js" }
   ]
 }
