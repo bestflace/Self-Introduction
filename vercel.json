@@ -1,17 +1,14 @@
 {
   "version": 2,
   "builds": [
-    { "src": "frontend/**", "use": "@vercel/static-build" },
+    { "src": "frontend/**", "use": "@vercel/static" },
     { "src": "api/send.js", "use": "@vercel/node" }
   ],
   "routes": [
     { "src": "/", "dest": "frontend/index.html" },
-    { "src": "/index", "dest": "frontend/index.html" },
     { "src": "/thamkin", "dest": "frontend/thamkin.html" },
-    { "src": "/thamkin.html", "dest": "frontend/thamkin.html" },
     { "src": "/tarot", "dest": "frontend/tarot.html" },
-    { "src": "/tarot.html", "dest": "frontend/tarot.html" },
-    { "src": "/(.*)", "dest": "frontend/$1" },
-    { "src": "/api/send", "dest": "api/send.js" }
+    { "src": "/api/send", "dest": "api/send.js" },
+    { "src": "/(.*)", "dest": "frontend/$1" }
   ]
 }
