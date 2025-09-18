@@ -3,34 +3,43 @@
   <head>
     <meta charset="UTF-8" />
     <title>Thầm kín</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="/frontend/style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Faustina:ital,wght@0,300..800;1,300..800&family=M+PLUS+Rounded+1c&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&display=swap"
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
   </head>
   <body>
     <header>
-      <a href="index.html" class="logo">BestFlace</a>
+      <a href="#" class="logo">BestFlace</a>
 
       <div class="menu-icon" aria-label="Open menu" role="button" tabindex="0">
         <i class="fa fa-bars" aria-hidden="true"></i>
       </div>
-
       <nav>
-        <a href="index.html">Giới thiệu</a>
+        <a href="index.html"> Giới thiệu</a>
         <a href="thamkin.html">Thầm kín</a>
         <a href="tarot.html">Tarot</a>
         <a href="#">Học vấn</a>
         <a href="#">Liên lạc</a>
       </nav>
     </header>
-
     <section class="home">
+      <div class="home-img">
+        <img src="main.jpg" alt="" />
+      </div>
       <div class="home-content">
-        <h1>Muốn tâm sự thì bấm nút bên dưới nhé 💙</h1>
-        <button type="button" id="openFormBtn" class="btn">Tâm sự</button>
+        <h3>
+          Có điều gì muốn nói với mình thì hãy điền vào form bên dưới nhé <3
+        </h3>
+        <p>
+          Ai muốn coi tarot thì nhấn vô mục Tarot nha mấy bồ, này là chổ tâm sự
+          thầm kín đó <3
+        </p>
+        <button type="button" id="openFormBtn" class="btn">Dô nè</button>
       </div>
     </section>
 
@@ -149,6 +158,5 @@
         document.querySelector("nav").classList.toggle("active");
       }
     </script>
-    <script src="js/menu.js"></script>
   </body>
 </html>
