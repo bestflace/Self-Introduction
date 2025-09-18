@@ -3,7 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <title>Thầm kín</title>
-    <link rel="stylesheet" href="/frontend/style.css" />
+
+    <!-- sửa đường dẫn nếu bạn serve frontend từ /frontend, 
+       hoặc dùng "style.css" khi serve từ cùng thư mục -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Font Awesome (bắt buộc để <i class="fa fa-bars"> hiển thị) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -153,10 +162,11 @@
         });
       });
     </script>
-    <script>
-      function toggleMenu() {
-        document.querySelector("nav").classList.toggle("active");
-      }
-    </script>
+    <!-- include menu toggle script (tạo file frontend/js/menu.js theo hướng dẫn trước) -->
+    <script src="js/menu.js"></script>
+
+    <!-- nếu bạn vẫn giữ hàm toggleMenu inline, gắn onclick như sau
+         (chỉ 1 trong 2 cách: menu.js tốt hơn) -->
+    <!--<script>document.querySelector('.menu-icon')?.addEventListener('click', toggleMenu);</script>-->
   </body>
 </html>
